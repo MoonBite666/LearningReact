@@ -72,7 +72,7 @@ function Skill({ skillObj }) {
   return (
     <li className={"skill"} style={{ backgroundColor: skillObj.color }}>
       <span>{skillObj.text}</span>
-      <span>{emoji}</spanspan>
+      <span>{emoji}</span>
     </li>
   );
 }
