@@ -26,10 +26,10 @@ export default function App() {
   return (
     <>
       <Bill bill={bill} setBill={setBill} />
-      <Rating id={0} onCalcTip={handleCalcTip}>
+      <Rating id={0} tip={tip} onCalcTip={handleCalcTip}>
         <span>How did you like the service?</span>
       </Rating>
-      <Rating id={1} onCalcTip={handleCalcTip}>
+      <Rating id={1} tip={tip} onCalcTip={handleCalcTip}>
         <span>How did your friend like the service?</span>
       </Rating>
       <Total>
