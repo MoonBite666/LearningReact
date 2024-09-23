@@ -2,21 +2,40 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 
 function Step({ step, setStep }) {
+  function handleInputChange(e) {
+    const n = e.target.value;
+    setStep(n);
+  }
+
   return (
     <div style={{ textAlign: "center" }}>
-      <button onClick={() => setStep(step > 0 ? step - 1 : 0)}>-</button>
+      <input
+        type={"range"}
+        min={"1"}
+        max={"10"}
+        value={step}
+        onChange={(e) => handleInputChange(e)}
+      />
       <span style={{ margin: 10 }}>Step: {step}</span>
-      <button onClick={() => setStep(step + 1)}>+</button>
     </div>
   );
 }
 
 function Count({ count, setCount }) {
+  function handleInputChange(e) {
+    const t = e.target.value;
+    setCount(t);
+  }
+
   return (
     <div style={{ textAlign: "center" }}>
-      <button onClick={() => setCount(count - 1)}>-</button>
-      <span style={{ margin: 10 }}>Count: {count}</span>
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount((c) => Number(c) - 1)}>-</button>
+      <input
+        type={"text"}
+        value={count}
+        onChange={(e) => handleInputChange(e)}
+      />
+      <button onClick={() => setCount((c) => Number(c) + 1)}>+</button>
     </div>
   );
 }
