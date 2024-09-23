@@ -1,19 +1,15 @@
-import React, { useState } from "react";
 import ContentBox from "./ContentBox";
 
-export default function AccordionItem({ faq, id }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function handleToggle() {
-    setIsOpen(!isOpen);
-  }
-
+export default function AccordionItem({ faq, id, handleToggle, openID }) {
   return (
-    <div className={`item ${isOpen ? "open" : ""}`} onClick={handleToggle}>
+    <div
+      className={`item ${openID === id ? "open" : ""}`}
+      onClick={() => handleToggle(id)}
+    >
       <p className={"number"}>{id < 10 ? "0" + id.toString() : id}</p>
       <h2 className={"text"}>{faq.title}</h2>
-      <p className={"icon"}>{isOpen ? "-" : "+"}</p>
-      {isOpen ? <ContentBox faq={faq} /> : null}
+      <p className={"icon"}>{openID === id ? "-" : "+"}</p>
+      {openID === id ? <ContentBox faq={faq} /> : null}
     </div>
   );
 }

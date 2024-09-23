@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AccordionItem from "./AccordionItem";
 
 const accordion = [
@@ -17,7 +17,21 @@ const accordion = [
 ];
 
 export default function Accordion() {
+  const [openID, setOpenID] = useState(null);
+
+  function handleToggle(crtID) {
+    if (crtID === openID) setOpenID(null);
+    else setOpenID(crtID);
+  }
+
   return accordion.map((faq, index) => {
-    return <AccordionItem faq={faq} id={index} />;
+    return (
+      <AccordionItem
+        faq={faq}
+        id={index}
+        handleToggle={handleToggle}
+        openID={openID}
+      />
+    );
   });
 }
