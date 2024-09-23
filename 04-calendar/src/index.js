@@ -56,6 +56,21 @@ function DateP({ step, count }) {
   );
 }
 
+function Reset({ setStep, setCount, step, count }) {
+  function handleReset() {
+    setStep(0);
+    setCount(0);
+  }
+
+  return (
+    (step !== 0 || count !== 0) && (
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <button onClick={handleReset}>Reset</button>
+      </div>
+    )
+  );
+}
+
 function App() {
   const [step, setStep] = useState(0);
   const [count, setCount] = useState(0);
@@ -64,6 +79,7 @@ function App() {
       <Step step={step} setStep={setStep} />
       <Count count={count} setCount={setCount} />
       <DateP step={step} count={count} />
+      <Reset setStep={setStep} setCount={setCount} step={step} count={count} />
     </>
   );
 }
