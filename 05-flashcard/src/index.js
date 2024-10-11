@@ -12,7 +12,7 @@ const questions = [
   {
     id: 7336,
     question: "What are ththee building blocks of React apps?",
-    answer: "Components",
+    answer: "ComponentsComponentsComponentsComponents",
   },
   {
     id: 8832,
